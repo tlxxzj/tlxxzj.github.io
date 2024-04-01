@@ -15,6 +15,9 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build-and-deploy:
+    permissions:
+      id-token: write
+      pages: write
     
     environment:
       name: github-pages
