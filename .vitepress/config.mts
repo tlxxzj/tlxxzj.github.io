@@ -12,7 +12,11 @@ export default defineConfig({
     search: {
       provider: 'local'
     },
-    outline: "deep"
+    outline: "deep",
+    editLink: {
+      pattern: 'https://github.com/tlxxzj/tlxxzj.github.io/edit/main/contents/:path',
+      text: 'Edit this page on GitHub'
+    }
   },
   vite: {
     resolve: {
