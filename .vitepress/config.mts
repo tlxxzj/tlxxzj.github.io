@@ -1,29 +1,24 @@
+import path from 'path'
+
 import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "tlxxzj.github.io",
-  description: "tlxxzj.github.io",
+  title: " ",
+  description: " ",
   srcDir: 'contents',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
-    ],
+    search: {
+      provider: 'local'
+    }
+  },
 
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
+  vite: {
+    resolve: {
+      alias: {
+        '@': path.resolve('.', '')
       }
-    ],
-
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
-    ]
+    }
   }
 })
