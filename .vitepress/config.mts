@@ -11,9 +11,9 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     search: {
       provider: 'local'
-    }
+    },
+    outline: "deep"
   },
-
   vite: {
     resolve: {
       alias: {
