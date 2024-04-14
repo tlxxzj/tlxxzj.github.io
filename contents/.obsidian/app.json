@@ -1,0 +1,9 @@
+{
+  "attachmentFolderPath": "uploads",
+  "promptDelete": false,
+  "newLinkFormat": "relative",
+  "useMarkdownLinks": true,
+  "livePreview": false,
+  "propertiesInDocument": "source",
+  "showLineNumber": true
+}
