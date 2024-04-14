@@ -5,7 +5,7 @@ layout: home
 
 <script setup>
 import { data as posts } from '@/posts.data.js'
-console.log(posts)
+//console.log(posts)
 </script>
 
 <h1>All Posts</h1>
