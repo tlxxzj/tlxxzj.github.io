@@ -521,3 +521,25 @@ kubectl --kubeconfig=kube_config_cluster.yml get nodes
 * `cluster.yml`:  rke 集群配置文件
 * `kube_config_cluster.yml`:  集群的 Kubeconfig 文件，此文件包含对集群的完全访问权限的凭据
 * `cluster.rkestate`: Kubernetes 集群状态文件，此文件包含用于完全访问集群的凭据
+
+
+## Kubernetes生态应用
+
+### Helm
+[Helm](https://helm.sh/) 是 Kubernetes 的包管理器
+
+#### 从脚本在线安装Helm
+```bash
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+sh get_helm.sh
+```
+
+### Rancher
+[Rancher](https://www.rancher.com/)是一个全栈式的 Kubernetes 容器管理平台
+![Rancher Cluster Explorer](../../uploads/rancher-cluster-explorer.png)
+
+#### 在Kubernetes中安装Rancher
+参考在线文档：[Install/Upgrade Rancher on a Kubernetes Cluster](https://ranchermanager.docs.rancher.com/getting-started/installation-and-upgrade/install-upgrade-on-a-kubernetes-cluster)
+
+
+
