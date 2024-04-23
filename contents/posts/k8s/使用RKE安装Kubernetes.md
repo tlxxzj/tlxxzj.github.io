@@ -543,3 +543,33 @@ sh get_helm.sh
 
 
 
+## GPU
+
+### NVIDIA Container Toolkit
+[NVIDIA容器工具包](https://github.com/NVIDIA/nvidia-container-toolkit)允许用户构建和运行GPU加速容器。该工具包包括一个容器运行时库和实用程序，用于自动配置容器以利用NVIDIA gpu。
+
+安装：
+```bash
+#ubuntu
+
+# Configure the production repository
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
+  && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
+    sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
+    sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
+
+# Update the packages list from the repository
+apt-get update
+
+# Install the NVIDIA Container Toolkit packages
+apt-get install nvidia-container-toolkit
+```
+
+配置：
+```bash
+# The `nvidia-ctk` command modifies the `/etc/docker/daemon.json` file on the host. The file is updated so that Docker can use the NVIDIA Container Runtime.
+nvidia-ctk runtime configure --runtime=docker
+
+# Restart the Docker daemon
+systemctl restart docker
+```
