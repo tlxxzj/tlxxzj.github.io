@@ -531,7 +531,7 @@ kubectl --kubeconfig=kube_config_cluster.yml get nodes
 #### 从脚本在线安装Helm
 ```bash
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
-sh get_helm.sh
+bash get_helm.sh
 ```
 
 ### Rancher
@@ -568,8 +568,28 @@ apt-get install nvidia-container-toolkit
 配置：
 ```bash
 # The `nvidia-ctk` command modifies the `/etc/docker/daemon.json` file on the host. The file is updated so that Docker can use the NVIDIA Container Runtime.
-nvidia-ctk runtime configure --runtime=docker
+nvidia-ctk runtime configure --runtime=docker --set-as-default
 
 # Restart the Docker daemon
 systemctl restart docker
 ```
+
+
+### NVIDIA/k8s-device-plugin
+[NVIDIA/k8s-device-plugin](https://github.com/NVIDIA/k8s-device-plugin)是一个守护进程，它允许你自动:  
+* 在集群的每个节点上公开gpu的数量  
+* 跟踪gpu的运行状况  
+* 在Kubernetes集群中运行启用GPU的容器
+
+使用Helm安装:
+```bash
+helm repo add nvdp https://nvidia.github.io/k8s-device-plugin
+helm repo update
+
+helm upgrade -i nvdp nvdp/nvidia-device-plugin \
+  --namespace nvidia-device-plugin \
+  --create-namespace \
+  --set gfd.enabled=true \
+  --version 0.15.0
+```
+
