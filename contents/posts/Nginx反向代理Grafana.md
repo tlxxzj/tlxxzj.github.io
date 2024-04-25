@@ -1,3 +1,7 @@
+---
+title: Nginx反向代理Grafana
+---
+
 修改Nginx配置文件 /etc/nginx/nignx.conf
 ```nginx
 events {
